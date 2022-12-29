@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Random Number Generator</title>
+</head>
+<body>
+  <h1>Random Number Generator</h1>
+  <p>This page will generate a random number with a given number of digits.</p>
+  <form action="random-number.php" method="post">
+    <p>
+      Please enter the number of digits you would like the random number to have:
+      <input type="text" name="numDigits" />
+    </p>
+    <input type="submit" value="Generate" />
+  </form>
+</body>
+</html>
+
+<?php
+if (isset($_POST['numDigits'])) {
+  $numDigits = $_POST['numDigits'];
+  // Generate a random number
+  $number = mt_rand(pow(10, $numDigits-1), pow(10, $numDigits)-1);
+  echo "Your random number is: " . $number;
+}
+?>
